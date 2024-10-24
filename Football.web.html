@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristiano Ronaldo Fan Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #c0392b;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        h2 {
+            color: #e67e22;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+            font-size: 2em;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #e67e22;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        h3:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #2c3e50;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 15px 0;
+            background: #34495e;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1em;
+            color: #aaa;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #219653;
+            transform: translateY(-2px);
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        canvas {
+            margin: 20px auto;
+            display: block;
+        }
+        .skill-info {
+            display: none;
+            background: #34495e;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>The Legend of Cristiano Ronaldo</h1>
+    <audio id="background-music" loop autoplay></audio>
+    <button class="button" onclick="playRandomSong()">Celebrate Ronaldo!</button>
+
+    <h2>About Cristiano Ronaldo</h2>
+    <p>
+        Cristiano Ronaldo dos Santos Aveiro, born on February 5, 1985, in Funchal, Madeira, Portugal, is often regarded as one of the greatest football players in history. His journey started at a young age with Sporting CP, where his exceptional talent quickly caught the attention of scouts. In 2003, he signed with Manchester United, beginning a remarkable career.
+    </p>
+    <p>
+        At Manchester United, Ronaldo won three Premier League titles and the UEFA Champions League, earning his first Ballon d'Or in 2008. In 2009, he transferred to Real Madrid for a then-world record fee of £80 million, where he enjoyed immense success, securing four more Champions League titles and scoring over 450 goals in nine seasons.
+    </p>
+    <p>
+        In 2018, he moved to Juventus, adding two Serie A titles to his accolades. Ronaldo's relentless pursuit of excellence continued as he returned to Manchester United for a second spell before joining Al Nassr in Saudi Arabia in 2023. Beyond his club success, he has been an instrumental player for the Portuguese national team, leading them to victory in the 2016 UEFA Euro Championship and the 2019 UEFA Nations League.
+    </p>
+
+    <h2>Achievements</h2>
+    <ul>
+        <li>Ballon d'Or: 5</li>
+        <li>Champions League Titles: 5</li>
+        <li>Premier League Titles: 3</li>
+        <li>La Liga Titles: 2</li>
+        <li>Serie A Titles: 2</li>
+        <li>UEFA Euro Championship: 1</li>
+        <li>UEFA Nations League: 1</li>
+    </ul>
+
+    <h2>Career Stats</h2>
+    <ul>
+        <li>Total Goals: Over 800</li>
+        <li>International Goals: Over 120</li>
+        <li>Total Matches: Over 1,100</li>
+        <li>Appearances for Portugal: 200+</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <h3 onclick="toggleInfo('shooting')">Shooting</h3>
+    <div id="shooting" class="skill-info">
+        <p>Ronaldo is renowned for his powerful and precise shooting ability, with a remarkable goal-scoring record. He can score from almost any position, whether it's a free-kick, long-range shot, or volley.</p>
+    </div>
+
+    <h3 onclick="toggleInfo('passing')">Passing</h3>
+    <div id="passing" class="skill-info">
+        <p>His passing ability enhances his overall play, allowing him to set up teammates effectively. Ronaldo is known for his vision and accuracy, delivering both short and long passes that create scoring opportunities.</p>
+    </div>
+
+    <h3 onclick="toggleInfo('dribbling')">Dribbling</h3>
+    <div id="dribbling" class="skill-info">
+        <p>Ronaldo's dribbling combines speed and agility, enabling him to navigate through defenders with ease. His close ball control allows him to evade tackles and create space.</p>
+    </div>
+
+    <h3 onclick="toggleInfo('heading')">Heading</h3>
+    <div id="heading" class="skill-info">
+        <p>Ronaldo's aerial ability is exceptional, with numerous goals scored from headers. His impressive vertical leap and timing make him a constant threat during set pieces.</p>
+    </div>
+
+    <h2>Image Gallery</h2>
+    <div class="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="Ronaldo Celebration">
+        <img src="https://i.pinimg.com/736x/5f/53/25/5f532522a745ff9d9e91a149c90986c9.jpg" alt="Ronaldo with Trophy" />
+    </div>
+
+    <h2>Achievements Chart</h2>
+    <canvas id="statsChart" width="400" height="200"></canvas>
+</div>
+
+<footer>
+    &copy; 2024 The Football Experience
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+    const songs = [
+        "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+    ];
+
+    // Function to play a random song
+    function playRandomSong() {
+        const audio = document.getElementById('background-music');
+        const randomSong = songs[Math.floor(Math.random() * songs.length)];
+        audio.src = randomSong;
+        audio.play().catch(error => {
+            console.log('Audio playback failed:', error);
+        });
+        alert('Now playing a random song!');
+    }
+
+    // Toggle skill info visibility
+    function toggleInfo(skill) {
+        const infoDiv = document.getElementById(skill);
+        infoDiv.style.display = (infoDiv.style.display === "block") ? "none" : "block";
+    }
+
+    // Chart.js for Achievements
+    const ctx = document.getElementById('statsChart').getContext('2d');
+    const statsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Ballon d\'Or', 'Champions League', 'Premier League', 'La Liga', 'Serie A'],
+            datasets: [{
+                label: 'Titles',
+                data: [5, 5, 3, 2, 2],
+                backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                borderColor: 'rgba(231, 76, 60, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Initialize AOS
+    AOS.init();
+</script>
+
+</body>
+</html>
